@@ -15,6 +15,7 @@ class FiguresController < ApplicationController
       @landmark = Landmark.find_or_create_by(params)
       @title = Title.find_or_create_by(params)
       @figure = Figure.create(params[:name])
+      binding.pry
       @figure.landmark = @landmark
       @figure.title = @title
       @figure.save
