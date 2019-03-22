@@ -19,14 +19,14 @@ class FiguresController < ApplicationController
       @landmark.name = params[:landmark][:name]
       @landmark.year_completed = params[:landmark][:year_completed]
       @title = params[:title][:name]
-
       @figure.save
       redirect to '/figures/:id'
     end
 
     get '/figures/:id' do
       @figure = Figure.find_by(params[:name])
-
+      @title = Title.find_by(params[:name])
+      @landmark = Landmark.find_by(params[:name])
       erb :'figures/show'
    end
 end
